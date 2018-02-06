@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
+import { AppRoutes } from './app.routes';
 import { ContactsService } from './contact.service';
+import { ContactResolve } from './contact.resolve';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -12,17 +14,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactListComponent } from './contactsList.component';
 import { ContactDetailComponent } from './contactDetail.component';
 
-
-const AppRoutes: Routes = [
-  { path:'login', component:LoginComponent },
-  { path:'home', component:HomeComponent},
-  { path:'signup', component:SignupComponent},
-  { path:'contact/:id', component:ContactDetailComponent},
-  { path:'', component:ContactListComponent},
-  // { path: '', redirectTo: '/contact', pathMatch: 'full'}, // Default redirect
-  { path:'**', component:PageNotFoundComponent}, //When there is no path match, use this for exceptions
-];
-  
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,12 +26,14 @@ const AppRoutes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(
-      AppRoutes,
-      { enableTracing:true }
+      AppRoutes
     ),
     BrowserModule
   ],
-  providers: [ContactsService],
+  providers: [
+    ContactsService,
+    ContactResolve
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

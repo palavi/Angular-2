@@ -22,7 +22,8 @@ export class ContactsService {
         return Observable.create(observer =>{
             setTimeout(()=>{
                 observer.next(contacts.find((contact) => contact.id == id))
-            }, 3000);
+                observer.complete();
+            }, 500);
         });
     }
     
