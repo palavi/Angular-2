@@ -12,6 +12,8 @@ const AppRoutes: Routes = [
   { path:'login', component:LoginComponent },
   { path:'home', component:HomeComponent},
   { path:'signup', component:SignupComponent},
+  { path:'contact', component:ContactListComponent},
+  { path:'contact/:id', component:ContactDetailComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'}, // Default redirect
   { path:'**', component:PageNotFoundComponent}, //When there is no path match, use this for exceptions
 ];
