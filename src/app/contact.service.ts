@@ -23,11 +23,7 @@ export class ContactsService {
             setTimeout(()=>{
                 observer.next(contacts.find((contact) => contact.id == id))
                 observer.complete();
-<<<<<<< HEAD
             }, 500);
-=======
-            }, 3000);
->>>>>>> 1e8d15d3789cfc0db93446424201c64cd8e812ce
         });
     }
     
